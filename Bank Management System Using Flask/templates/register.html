@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+    Register
+{% endblock %}
+
+{% block content %}
+    <h2 class="custom-heading">Register</h2>
+    <form method="post" class="custom-form">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" name="username" id="username" value="{{ username }}" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" name="password" id="password" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" id="email" value="{{ email }}" required>
+        </div>
+        <div class="form-group">
+            <label for="roles">Role (admin/customer):</label>
+            <input type="text" class="form-control" name="roles" id="roles" value="{{ roles }}" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" class="form-control" name="phone" id="phone" value="{{ phone }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+    </form>
+    <a class="btn btn-secondary mt-3" href="{{ url_for('main.account_menu') }}">Back to Account Menu</a>
+{% endblock %}

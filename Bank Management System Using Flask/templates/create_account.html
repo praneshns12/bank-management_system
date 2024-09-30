@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+    Create Account
+{% endblock %}
+
+{% block content %}
+    <h2 class="custom-heading">Create Account</h2>
+    {% if step == 'login' %}
+        <form method="post" class="custom-form">
+            <input type="hidden" name="step" value="login">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" name="email" id="email" value="{{ email }}" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" name="password" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+    {% elif step == 'create' %}
+        <form method="post" class="custom-form">
+            <input type="hidden" name="step" value="create">
+            <input type="hidden" name="search" value="{{ search }}">
+
+            <div class="form-group">
+                <label for="account_holder">Account Holder:</label>
+                <input type="text" class="form-control" name="account_holder" id="account_holder" value="{{ account_holder }}" required>
+            </div>
+            <div class="form-group">
+                <label for="account_type">Account Type (savings/current):</label>
+                <input type="text" class="form-control" name="account_type" id="account_type" value="{{ account_type }}" required>
+            </div>
+            <div class="form-group">
+                <label for="date_of_birth">Date of Birth:</label>
+                <input type="date" class="form-control" name="date_of_birth" id="date_of_birth" value="{{ date_of_birth }}" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" class="form-control" name="phone" id="phone" value="{{ phone }}" required>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Create Account</button>
+        </form>
+    {% endif %}
+    <a class="btn btn-secondary mt-3" href="{{ url_for('main.account_menu') }}">Back to Account Menu</a>
+{% endblock %}

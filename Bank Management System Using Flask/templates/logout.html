@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Logout
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        {% if current_user %}
+        <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">Logout Successful!</h4>
+            <p>You have been successfully logged out, {{ current_user.username }}.</p>
+        </div>
+        {% else %}
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Already Logged Out</h4>
+            <p>You are already logged out.</p>
+        </div>
+        {% endif %}
+        <hr>
+        <p><a href="{{ url_for('main.main_menu') }}" class="btn btn-primary">Return to Main Menu</a></p>
+    </div>
+{% endblock %}

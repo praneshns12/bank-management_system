@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    Account Menu
+{% endblock %}
+{% block content %}
+    <h2 class="custom-heading">Account Menu</h2>
+    <ul class="list-group">
+        <li class="list-group-item"><a class="btn btn-primary btn-block" href="{{ url_for('main.register') }}">Register User</a></li>
+        <li class="list-group-item"><a class="btn btn-danger btn-block" href="{{ url_for('main.delete_user') }}">Delete User</a></li>
+        <li class="list-group-item"><a class="btn btn-success btn-block" href="{{ url_for('main.create_account') }}">Create Account</a></li>
+        <li class="list-group-item"><a class="btn btn-warning btn-block" href="{{ url_for('main.delete_account') }}">Delete Account</a></li>
+        <li class="list-group-item"><a class="btn btn-warning btn-block" href="{{ url_for('main.user_details') }}">User details</details></a></li>
+    </ul>
+{% endblock %}

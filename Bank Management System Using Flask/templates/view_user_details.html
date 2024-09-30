@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+    User Details by Email
+{% endblock %}
+
+{% block content %}
+    <h2>User Details</h2>
+    <a class="btn btn-primary mt-3" href="{{ url_for('main.display_user_details') }}">View User Details By Email</a>
+
+
+    {% if users %}
+        <ul>
+            {% for user in users %}
+                <li>
+                    <p><strong>Name:</strong> {{ user[1] }}</p>
+                    <p><strong>Email:</strong> {{ user[2] }}</p>
+                    <p><strong>Phone:</strong> {{ user[3] }}</p>
+                    <p><strong>Role:</strong> {{ user[4] }}</p>
+                    {% if user[5] %}
+                        <p><strong>Account Number:</strong> {{ user[6] }}</p>
+                        <p><strong>Balance:</strong> {{ user[7] }}</p>
+                        <p><strong>Account Type:</strong> {{ user[8] }}</p>
+                        <p><strong>Phone Number:</strong> {{ user[9] }}</p>
+                    {% else %}
+                        <p>No account associated with this user.</p>
+                    {% endif %}
+                    <hr>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No users found.</p>
+    {% endif %}
+
+    <a class="btn btn-secondary" href="{{ url_for('main.account_menu') }}">Back to Account Menu</a>
+{% endblock %}

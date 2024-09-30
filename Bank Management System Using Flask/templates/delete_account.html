@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+    Delete Account
+{% endblock %}
+
+{% block content %}
+    <h2 class="custom-heading">Delete Account</h2>
+    <form method="post" class="custom-form">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" id="email" value="{{ request.form.email if request.form.email else '' }}" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" name="password" id="password" required>
+        </div>
+        <div class="form-group">
+            <label for="account_number">Account Number:</label>
+            <input type="text" class="form-control" name="account_number" id="account_number" value="{{ request.form.account_number if request.form.account_number else '' }}" required>
+        </div>
+        <button type="submit" class="btn btn-danger btn-block">Delete Account</button>
+    </form>
+    <a class="btn btn-secondary mt-3" href="{{ url_for('main.account_menu') }}">Back to Account Menu</a>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Account Details
+{% endblock %}
+
+{% block content %}
+    <h2 class="custom-heading">Account Details</h2>
+    {% if account %}
+    <div class="card mt-3">
+        <div class="card-body">
+            <h3 class="card-title">Details for Account: </h3>
+            <p class="card-text"><strong>Account Holder:</strong> {{ account.account_holder }}</p>
+            <p class="card-text"><strong>Account Number:</strong> {{ account.account_number }}</p>
+            <p class="card-text"><strong>Account Type:</strong> {{ account.account_type }}</p>
+            <p class="card-text"><strong>Balance:</strong> {{ account.balance }}</p>
+            <p class="card-text"><strong>Date of Birth:</strong> {{ account.date_of_birth }}</p>
+            <p class="card-text"><strong>Creation Date:</strong> {{ account.creation_date }}</p>
+            <p class="card-text"><strong>Deletion Date:</strong> {{ account.deletion_date }}</p>
+            <p class="card-text"><strong>Phone:</strong> {{ account.phone }}</p>
+            <p class="card-text"><strong>Created By:</strong> {{ creator_name }}</p>
+        </div>
+    </div>
+    <a class="btn btn-primary mt-3" href="{{ url_for('main.view_account_transactions', account_number=account.account_number) }}">View Transactions</a>
+    {% endif %}
+    <a class="btn btn-secondary mt-3" href="{{ url_for('main.user_menu') }}">Back to User Menu</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Account Details
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Account Details</h1>
+        
+        {% if account %}
+            <hr>
+            <h2>Account Information:</h2>
+            <p><strong>Account Number:</strong> {{ account.account_number }}</p>
+            <p><strong>Account Holder:</strong> {{ account.account_holder }}</p>
+            <p><strong>Balance:</strong> ${{ account.balance }}</p>
+        {% endif %}
+        
+        <a class="btn btn-secondary mt-3" href="{{ url_for('main.user_menu') }}">Back to User Menu</a>
+    </div>
+{% endblock %}

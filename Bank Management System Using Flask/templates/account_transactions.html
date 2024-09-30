@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+    Account Transactions
+{% endblock %}
+
+{% block content %}
+    <h2 class="custom-heading">Account Transactions</h2>
+    {% if transactions %}
+        <ul class="list-group">
+            {% for transaction in transactions %}
+                <li class="list-group-item">
+                    <strong>Transaction Type:</strong> {{ transaction.transaction_type }}<br>
+                    <strong>Amount:</strong> {{ transaction.amount }}<br>
+                    <strong>Date & Time:</strong> {{ transaction.timestamp }}<br>
+                    <strong>Receiver Account Number:</strong> {{ transaction.account_number }}<br>
+                    <strong>Sender Account Number:</strong> {{ transaction.receiver_account_number }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No transactions found.</p>
+    {% endif %}
+    <a class="btn btn-secondary mt-3" href="{{ url_for('main.view_account_details', account_number=account.account_number) }}">Back to Account Details</a>
+{% endblock %}
